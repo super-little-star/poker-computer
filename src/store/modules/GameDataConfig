@@ -1,0 +1,23 @@
+GameList{
+    {
+        date:1620000,
+        price:0.5,
+        players:{
+            player1:"",
+            player2:"",
+            player3:"",
+            player4:""
+        },
+        gameInfoList:[
+            {
+                gameNum:1,
+                player1:num,
+                player2:num,
+                player3:num,
+                player4:num
+            },
+            ....
+        ]
+    },
+    ....
+}
