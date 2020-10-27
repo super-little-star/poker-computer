@@ -164,7 +164,7 @@ export default {
       let str = "";
       let i = 1;
       for (let key in this.players) {
-        str += "[" + this.players[key] + ":￥" + r[i] * this.price + "]";
+        str += "[" + this.players[key] + ":" + r[i] * this.price + "]";
         i++;
       }
       this.checkOutVis = true;

@@ -11,7 +11,6 @@
       <el-button
         type="primary"
         icon="el-icon-plus"
-        size="mini"
         @click="gameSettingVis = true"
         >添加
       </el-button>
@@ -62,7 +61,7 @@ export default {
     },
     selected() {
       if (this.curGame == null) {
-        this.$message.error("请选择对局");
+        this.$root.Msg_Error("请选择对局");
         return;
       }
       this.$emit("update:curGame", this.curGame);

@@ -40,7 +40,7 @@
           placeholder="玩家4"
         />
       </el-form-item>
-      <el-form-item label="单价(￥)" prop="checkPass">
+      <el-form-item label="基础分" prop="checkPass">
         <el-input-number
           size="mini"
           v-model="gameSettingData.price"
@@ -86,7 +86,7 @@ export default {
     submitForm() {
       for (let key in this.gameSettingData.players) {
         if (this.gameSettingData.players[key] == "") {
-          this.$message.error("输入所有玩家信息");
+          this.$root.Msg_Error("输入所有玩家信息");
           return;
         }
       }

@@ -6,21 +6,33 @@
           <el-col :span="4" class="header-icon">
             <i class="el-icon-s-order" @click="clickMenu"></i>
           </el-col>
-          <el-col :span="16" class="title"> 锄大地计算器</el-col>
+          <el-col :span="16" class="title"> 锄大②计算器</el-col>
           <el-col :span="4"></el-col>
         </el-row>
       </el-header>
       <el-main>
         <div v-if="curGame != null">
-          <inputGameInfo
-            @addGameInfo="addGameInfo"
-            :players="curGame.players"
-          />
           <el-button
             icon="el-icon-minus"
             circle
             @click="removeGameInfoList"
+            class="removeBtn"
           ></el-button>
+          <el-button
+            icon="el-icon-plus"
+            round
+            @click="inputGameInfoVis = true"
+            class="removeBtn"
+            type="danger"
+          >
+            添加
+          </el-button>
+          <inputGameInfo
+            @addGameInfo="addGameInfo"
+            :players="curGame.players"
+            :dialogVisible.sync="inputGameInfoVis"
+          />
+
           <mScorecard
             :players="curGame.players"
             :gameInfoList="curGame.gameInfoList"
@@ -53,7 +65,8 @@ export default {
     return {
       curGame: null,
       gameList: [],
-      gameInfoListVis: false
+      gameInfoListVis: false,
+      inputGameInfoVis: false
     };
   },
   mounted() {
@@ -68,12 +81,12 @@ export default {
       info["gameNum"] = this.curGame.gameInfoList.length + 1;
       this.curGame.gameInfoList.push(info);
       this.$store.commit("gameData/UpdateData");
-      this.$message.success("添加成功");
+      this.$root.Msg_Success("添加成功");
     },
     removeGameInfoList: function() {
       this.curGame.gameInfoList.pop();
       this.$store.commit("gameData/UpdateData");
-      this.$message.success("移除成功");
+      this.$root.Msg_Success("移除成功");
     }
   },
   watch: {
@@ -91,5 +104,12 @@ export default {
 }
 .header-icon {
   font-size: 30px;
+}
+.removeBtn {
+  float: right;
+  margin-right: 10px;
+}
+.addBtn {
+  float: right;
 }
 </style>
