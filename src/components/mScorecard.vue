@@ -1,11 +1,30 @@
 <template>
   <div class="scorecard">
+    <div class="my-swithc">
+      <el-switch
+        v-model="lengthen"
+        active-color="#13ce66"
+        inactive-color="#ff4949"
+        active-value="550px"
+        inactive-value="350px"
+        change="lengthenChange"
+      />
+    </div>
+    <el-button
+      :disabled="gameInfoList.length <= 0"
+      type="primary"
+      @click="checkOut"
+      class="result-btn"
+    >
+      结算
+    </el-button>
+
     <el-table
       ref="scorecard"
       :data="gameInfoList"
       border
       size="mini"
-      max-height="272"
+      :max-height="lengthen"
       :cell-style="cellstyle"
       :summary-method="getSummaries"
       show-summary
@@ -61,13 +80,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-button
-      :disabled="gameInfoList.length <= 0"
-      type="primary"
-      @click="checkOut"
-    >
-      结算
-    </el-button>
 
     <el-dialog :visible.sync="checkOutVis" width="100%">
       <span>{{ resultStr }}</span>
@@ -92,10 +104,13 @@ export default {
     return {
       result: [],
       resultStr: "",
-      checkOutVis: false
+      checkOutVis: false,
+      lengthen: false
     };
   },
-  mounted() {},
+  beforeMount() {
+    this.lengthen = this.$root.$store.getters["gameData/Lengthen"];
+  },
   updated() {
     this.goBottom();
   },
@@ -169,7 +184,28 @@ export default {
       }
       this.checkOutVis = true;
       this.resultStr = str;
+    },
+    lengthenChange() {
+      this.$root.$store.commit("gameData/SetLengthen", this.lengthen);
     }
   }
 };
 </script>
+
+<style lang="scss">
+.scorecard {
+  padding: 10px 0px;
+}
+.my-swithc {
+  display: flex;
+  float: left;
+  padding-top: 20px;
+  flex-direction: column;
+  padding-left: 5px;
+}
+.result-btn {
+  float: right;
+  margin-right: 5px !important;
+  margin-bottom: 5px !important;
+}
+</style>

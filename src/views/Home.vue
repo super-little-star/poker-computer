@@ -12,21 +12,6 @@
       </el-header>
       <el-main>
         <div v-if="curGame != null">
-          <el-button
-            icon="el-icon-minus"
-            circle
-            @click="removeGameInfoList"
-            class="removeBtn"
-          ></el-button>
-          <el-button
-            icon="el-icon-plus"
-            round
-            @click="inputGameInfoVis = true"
-            class="removeBtn"
-            type="danger"
-          >
-            添加
-          </el-button>
           <inputGameInfo
             @addGameInfo="addGameInfo"
             :players="curGame.players"
@@ -38,6 +23,21 @@
             :gameInfoList="curGame.gameInfoList"
             :price="curGame.price"
           />
+          <el-button
+            icon="el-icon-plus"
+            round
+            @click="inputGameInfoVis = true"
+            class="removeBtn"
+            type="danger"
+          >
+            添加
+          </el-button>
+          <el-button
+            icon="el-icon-minus"
+            circle
+            @click="removeGameInfoList"
+            class="removeBtn"
+          ></el-button>
         </div>
         <div v-else>
           <el-button type="primary" @click="gameInfoListVis = true">
@@ -106,10 +106,10 @@ export default {
   font-size: 30px;
 }
 .removeBtn {
-  float: right;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 .addBtn {
-  float: right;
+  margin-bottom: 10px;
 }
 </style>

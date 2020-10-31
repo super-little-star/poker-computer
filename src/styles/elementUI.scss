@@ -12,16 +12,21 @@
     background-color: #efefef;
     color: #333;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 
 .el-table__body,.el-table__header,.el-table__empty-block,.el-table__footer{
     width: initial !important;
+    font-size: 15px;
 }
 .el-table .cell{
     text-align: center;
+    
 }
 
+.el-table{
+    margin: 10px 0px;
+}
 
 .el-form--label-top .el-form-item__label{
     padding: 0 !important;

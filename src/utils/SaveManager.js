@@ -10,6 +10,11 @@ export var dataKey = {
     key: "admin_curGame",
     type: "session",
     default: null
+  },
+  lengthen: {
+    key: "admin_lengthen",
+    type: "local",
+    default: false
   }
 };
 

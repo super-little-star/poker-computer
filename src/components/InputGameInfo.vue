@@ -1,56 +1,54 @@
 <template>
-  <div id="InputGameInfo">
-    <el-dialog
-      title="添加对局"
-      width="80%"
-      :visible.sync="visible"
-      @closed="closed"
-    >
-      <el-form :model="formInline" class="demo-form-inline">
-        <el-form-item :label="players.player1">
-          [{{ formInline.player1 }}]
-          <div class="block">
-            <el-slider
-              v-model="formInline.player1"
-              max="13"
-              :show-tooltip="false"
-            ></el-slider>
-          </div>
-        </el-form-item>
-        <el-form-item :label="players.player2">
-          [{{ formInline.player2 }}]
-          <div class="block">
-            <el-slider
-              v-model="formInline.player2"
-              max="13"
-              :show-tooltip="false"
-            ></el-slider>
-          </div>
-        </el-form-item>
-        <el-form-item :label="players.player3">
-          [{{ formInline.player3 }}]
-          <div class="block">
-            <el-slider
-              v-model="formInline.player3"
-              max="13"
-              :show-tooltip="false"
-            ></el-slider>
-          </div>
-        </el-form-item>
-        <el-form-item :label="players.player4">
-          [{{ formInline.player4 }}]
-          <div class="block">
-            <el-slider
-              v-model="formInline.player4"
-              max="13"
-              :show-tooltip="false"
-            ></el-slider>
-          </div>
-        </el-form-item>
-      </el-form>
-      <el-button type="danger" @click="addGameInfo">添加对局结果</el-button>
-    </el-dialog>
-  </div>
+  <el-dialog
+    title="添加对局"
+    width="80%"
+    :visible.sync="visible"
+    @closed="closed"
+  >
+    <el-form :model="formInline" class="demo-form-inline">
+      <el-form-item :label="players.player1">
+        [{{ formInline.player1 }}]
+        <div class="block">
+          <el-slider
+            v-model="formInline.player1"
+            max="13"
+            :show-tooltip="false"
+          ></el-slider>
+        </div>
+      </el-form-item>
+      <el-form-item :label="players.player2">
+        [{{ formInline.player2 }}]
+        <div class="block">
+          <el-slider
+            v-model="formInline.player2"
+            max="13"
+            :show-tooltip="false"
+          ></el-slider>
+        </div>
+      </el-form-item>
+      <el-form-item :label="players.player3">
+        [{{ formInline.player3 }}]
+        <div class="block">
+          <el-slider
+            v-model="formInline.player3"
+            max="13"
+            :show-tooltip="false"
+          ></el-slider>
+        </div>
+      </el-form-item>
+      <el-form-item :label="players.player4">
+        [{{ formInline.player4 }}]
+        <div class="block">
+          <el-slider
+            v-model="formInline.player4"
+            max="13"
+            :show-tooltip="false"
+          ></el-slider>
+        </div>
+      </el-form-item>
+    </el-form>
+    <el-button type="danger" @click="addGameInfo">添加对局结果</el-button>
+  </el-dialog>
 </template>
 
 <script>

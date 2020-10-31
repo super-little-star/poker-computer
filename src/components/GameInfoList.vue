@@ -5,6 +5,7 @@
       :visible.sync="visible"
       width="80%"
       @closed="closed"
+      center
     >
       <gameSetting :dialogVisible.sync="gameSettingVis" />
 

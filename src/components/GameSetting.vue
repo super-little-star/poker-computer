@@ -5,6 +5,7 @@
     width="80%"
     @closed="closed"
     append-to-body
+    center
   >
     <el-form
       :model="gameSettingData"

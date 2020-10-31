@@ -2,7 +2,8 @@ import { dataKey, GetData, SetData } from "@u/SaveManager";
 
 const state = {
   gameList: null,
-  curGame: null
+  curGame: null,
+  lengthen: null
 };
 const getters = {
   GameList: state => {
@@ -16,6 +17,12 @@ const getters = {
       state.curGame = GetData(dataKey.curGame);
     }
     return state.curGame;
+  },
+  Lengthen: state => {
+    if (state.lengthen == null) {
+      state.lengthen = GetData(dataKey.lengthen);
+    }
+    return state.lengthen;
   }
 };
 const mutations = {
@@ -36,6 +43,10 @@ const mutations = {
     t = state.curGame;
     SetData(dataKey.gameList, state.gameList);
     SetData(dataKey.curGame, state.curGame);
+  },
+  SetLengthen(state, value) {
+    state.lengthen = value;
+    SetData(dataKey.lengthen, state.lengthen);
   }
 };
 const actions = {};
